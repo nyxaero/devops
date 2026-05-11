@@ -11,4 +11,8 @@ monitoring/
 |____ prometheus.yml
 
 
-dockerhub username: hemanthrxx1bm23cd021
+dockerhub username: hemanthrxx1bm23cd0213
+dockerhub password: 
+>> install age
+>> age -d secret.txt.age
+
