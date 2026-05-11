@@ -1,3 +1,19 @@
+
+# templates/index.html
+----------------------------------------------
+<!Doctype html>
+<html>
+	<head>
+		<title>
+			umba gumba
+		</title
+	</head>
+	<body>
+		this is the body
+	</body>
+</html>
+
+
 # app.py
 -----------------------------------------------------------
 from flask import Flask, render_template
