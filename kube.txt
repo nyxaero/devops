@@ -1,0 +1,61 @@
+kuberntes
+
+minikube start --driver=docker
+minikube status
+
+kubectl get pods
+
+kubectl run my-pod --image=nginx --restart=never
+kubectl get pods
+
+kubectl get pod/my-pod -o wide
+
+kubectl expose pod my-pod --type=NodePort --port=80 --name=my-service
+
+
+
+kubectl get services
+
+ minikube service my-service --url
+
+
+kubectl delete service my-service
+
+kubectl delete pod my-pod
+
+------------------------
+
+kubectl create deployment my-deployment --image=nginx --replicas=2
+kubectl get pods
+kubectl get deployment
+----
+kubectl expose deployment my-deployment --type=NodePort --port=80
+
+minikube service my-deployment --url
+minikube service my-deployment
+
+kubectl scale deployment my-deployment --replicas=5
+kubectl get pods
+
+kubectl delete pod <pod-name>
+kubectl get pods
+
+------
+kubectl delete deployment my-deployment
+
+-----------------------------------------------------------------------
+
+MINIKUBE ONLY COMMANDS:
+minikube start --driver=docker
+minikube status
+
+minikube service my-service --url
+
+minikube service my-deployment --url
+minikube service my-deployment
+
+
+
+
+
+

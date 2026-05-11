@@ -1,0 +1,44 @@
+docker run -d \
+  --name jenkins-container \
+  -p 8080:8080 \
+  -p 50000:50000 \
+  jenkins/jenkins:lts
+
+
+---
+
+docker exec -it bash cat /var/lib/jenkins/secrets/initialAdminPassword
+
+---
+
+plugin required:
+ - Build Pipeline View
+ - Copy Artifacts
+
+---
+
+create 3 jobs j1,j2,j3
+
+ j1
+----
+echo "ran command from job 1 "
+
+POST BUILD ACTIONS -> build other projects -> j2
+		      
+ j2
+----
+echo "ran command from job 2"
+mkdir -p output/results.txt
+echo "hehehaha" > output/results,txt
+
+POST BUILD ACTION -> build other projects -> j3
+		     Copy artifacts to Archive
+
+ j3 
+----
+Copy artifacts from another project -> j2
+target -> 
+cat output/results.txt
+
+		     
+

@@ -1,0 +1,49 @@
+# app.py
+-----------------------------------------------------------
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def home_page():
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+---
+
+
+# Dockerfile
+-----------------------------------------------------------
+FROM python:3-alpine3.15
+
+WORKDIR /temp
+
+COPY . /temp
+
+RUN pip install flask
+
+CMD ["python3", "app.py"]
+
+---
+
+# Commands
+-------------------------------------------------------------
+docker build -t flaskapp .
+
+docker images
+
+docker run -d -p 5000:5000 --name flask-container flaskapp
+---
+docker login -u YOUR_USERNAME
+
+docker tag flaskapp YOUR_USERNAME/flaskapp:v1
+
+docker push YOUR_USERNAME/flaskapp:v1
+
+docker logout
+
+docker pull YOUR_USERNAME/flaskapp:v1
+
+docker run -d -p 5000:5000 YOUR_USERNAME/flaskapp:v1
+

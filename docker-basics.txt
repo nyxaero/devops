@@ -1,0 +1,64 @@
+docker --version
+docker version
+
+docker pull nginx
+docker pull ubuntu:22.04
+
+docker images
+docker image ls
+
+docker rmi nginx
+docker rmi IMAGE_ID
+docker rmi -f IMAGE_ID
+
+docker run nginx
+docker run -d nginx
+docker run -d --name mynginx nginx
+docker run -d -p 8080:80 nginx
+docker run -it ubuntu bash
+
+docker ps
+docker ps -a
+
+docker start CONTAINER_ID
+docker start mynginx
+
+docker stop CONTAINER_ID
+docker stop mynginx
+
+docker restart mynginx
+
+docker exec -it mynginx bash
+docker exec -it mycontainer sh
+docker exec mynginx ls
+
+docker logs mynginx
+docker logs -f mynginx
+
+docker rm mynginx
+docker rm -f mynginx
+
+docker build -t myapp .
+docker build -t myapp:v1 .
+
+docker system prune
+docker system prune -a
+
+docker inspect mynginx
+
+docker stats
+
+docker cp file.txt mycontainer:/app
+docker cp mycontainer:/app/file.txt .
+
+docker pull nginx
+docker run -d --name web -p 8080:80 nginx
+docker ps
+docker exec -it web bash
+docker stop web
+docker rm web
+docker rmi nginx
+
+docker build -t portfolio .
+
+docker run -d -p 8080:80 --name portfolio-container portfolio
