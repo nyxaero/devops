@@ -1,0 +1,11 @@
+docker-basics.txt
+dockerfile.txt
+jenkins.txt
+kube.txt
+
+
+12708
+monitoring/
+|____ docker-compose.yml
+|____ nginx.conf
+|____ prometheus.yml
